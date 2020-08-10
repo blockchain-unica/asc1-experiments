@@ -35,7 +35,7 @@ Please enter the password for wallet 'myWallet':
 [offline]       Unnamed-1       HUUQGQ3MTIZLRNCANCPWJGD2VJAGKCLDJFVRYWQSTIJILQ6HEZUOJNWUW4      0 microAlgos
 ```
 
-Construct a payment transaction to send 1 Algo as follows. You can initialize a note, for example "Hello World" that will be send with the transaction. The minimum fee is 1000 microAllgos.
+Construct a payment transaction to send 1 Algo as follows. You can write some notes, for example "Hello World" that will be send with the transaction. The minimum fee is 1000 microAllgos.
 
 ```
 ./goal clerk send --from=GKQFFBB74PQY7KS5T5A73NPNGQKWOO2GHVRXKS2NEGXYKLANAOP74U3EE4 --to=HUUQGQ3MTIZLRNCA
@@ -67,6 +67,8 @@ Please enter the password for wallet 'myWallet':
 [offline]       Unnamed-0       GKQFFBB74PQY7KS5T5A73NPNGQKWOO2GHVRXKS2NEGXYKLANAOP74U3EE4      98999000 microAlgos     *Default
 [offline]       Unnamed-1       HUUQGQ3MTIZLRNCANCPWJGD2VJAGKCLDJFVRYWQSTIJILQ6HEZUOJNWUW4      1000000 microAlgos
 ```
+
+You should now find the new value into your account deposit.
 
 [Algorand's Doc - Your first transaction](https://developer.algorand.org/docs/build-apps/hello_world/) 
 
