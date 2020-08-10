@@ -5,4 +5,4 @@
   - [Open a shell](https://github.com/blockchain-unica/asc1-experiments/blob/master/node_interaction/open_shell.md#open_shell)
 
 - Transactions
-  - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/node_interaction/single_transaction.md#single_transaction)
+  - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/Transactions/single_transaction.md#single_transaction)
