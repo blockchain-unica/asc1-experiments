@@ -23,8 +23,7 @@ algorand@1238443847f0:/opt/algorand/node$ ./goal account list
 [offline]       Unnamed-0       GKQFFBB74PQY7KS5T5A73NPNGQKWOO2GHVRXKS2NEGXYKLANAOP74U3EE4      98999000 microAlgos     *Default
 ```
 
-You can verify that the account was deleted. This will remove all money from your account.
-
+The account was deleted. This will not remove money from your account. You can always recover your account as shown [here](https://developer.algorand.org/docs/reference/cli/goal/account/recover.md#recover_account).
 
 [Algorand's Doc - goal account delete](https://developer.algorand.org/docs/reference/cli/goal/account/delete/) 
 
