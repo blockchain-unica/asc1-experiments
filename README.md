@@ -9,4 +9,4 @@
 
 - Account
   - [Delete](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/delete.md#delete_account)
-  - [Recover](https://developer.algorand.org/docs/reference/cli/goal/account/recover.md#recover_account)
+  - [Recover](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
