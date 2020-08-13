@@ -13,7 +13,6 @@ You can now interact with the node and run commands from within the container.
 ```
 $ ./sandbox enter
 Entering /bin/bash session in the sandbox container...
-^[[Aalgorand@1238443847f0:/opt/algorand/node$
 ```
 
 Be sure to have a wallet. You can verify your wallet ID by typing the command ```./goal wallet list``` from within the shell.
@@ -47,7 +46,6 @@ Sign the transaction. Then, it will be requested to add your wallet password.
 ```
 algorand@1238443847f0:/opt/algorand/node$ ./goal clerk sign --infile="hello-world.txn" --outfile="hello-world.stxn"
 Please enter the password for wallet 'myWallet':
-algorand@1238443847f0:/opt/algorand/node$ 
 ```
 
 Submit the transaction.
