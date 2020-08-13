@@ -37,7 +37,7 @@ Please enter the password for wallet 'myWallet':
 Construct a payment transaction to send 1 Algo as follows. You can write some notes, for example "Hello World" that will be send with the transaction. The minimum fee is 1000 microAllgos.
 
 ```
-./goal clerk send --from=GKQFFBB74PQY7KS5T5A73NPNGQKWOO2GHVRXKS2NEGXYKLANAOP74U3EE4 --to=HUUQGQ3MTIZLRNCA
+algorand@1238443847f0:/opt/algorand/node$ ./goal clerk send --from=GKQFFBB74PQY7KS5T5A73NPNGQKWOO2GHVRXKS2NEGXYKLANAOP74U3EE4 --to=HUUQGQ3MTIZLRNCA
 NCPWJGD2VJAGKCLDJFVRYWQSTIJILQ6HEZUOJNWUW4 --fee=1000 --amount=1000000 --note="Hello World" --out="hello-world.txn"
 ```
 
