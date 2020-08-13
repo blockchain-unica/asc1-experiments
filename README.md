@@ -6,7 +6,12 @@
 
 - Transactions
   - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction.md#single_transaction)
+  - [Client - Send transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
 
 - Account
   - [Delete](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/delete.md#delete_account)
   - [Recover](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
+  - [Client - Close](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
+  - [Client - Create](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
+  - [Client - Create wallet](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
+  - [Client - Info](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
