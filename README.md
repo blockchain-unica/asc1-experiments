@@ -13,7 +13,7 @@
   - [Open a shell](https://github.com/blockchain-unica/asc1-experiments/blob/master/node_interaction/open_shell.md#open_shell)
 
 - Smart contract
-  - [Contract account]()
+  - [Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/contract_account.md#contract_account)
 
 - Transactions
   - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction.md#single_transaction)
