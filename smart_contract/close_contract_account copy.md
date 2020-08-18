@@ -1,6 +1,6 @@
 ## Smart Contract
 
-#### Contract Account
+#### Close a Contract Account
 
 We have previously created a contract account as shown [here](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/create_contract_account.md#create_contract_account).
 This is the address of our contract accont.

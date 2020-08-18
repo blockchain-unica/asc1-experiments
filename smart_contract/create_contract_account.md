@@ -1,6 +1,6 @@
 ## Smart Contract
 
-#### Contract Account
+#### Create a Contract Account
 
 Writing a simple smart contract that works as a contract account.
 
