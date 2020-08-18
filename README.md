@@ -16,7 +16,7 @@
   - [Create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/create_contract_account.md#create_contract_account)
   - [Close a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/close_contract_account%20copy.md#close_contract_account)
   - [Re-create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/re_create_contract_account.md#re_create_contract_account)
-  - [Creating the same Contract account]()
+  - [Creating the same Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/same_contract_account.md#same_script)
 
 - Transactions
   - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction.md#single_transaction)
