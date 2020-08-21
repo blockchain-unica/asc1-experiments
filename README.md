@@ -3,7 +3,7 @@
 - Account
   - [Delete](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/delete.md#delete_account)
   - [Recover](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
-  - [Create random address]()
+  - [Generate random (malformed) address](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/create_random_address.md#create_malformed_address)
   - [Client - Close](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/client_nodejs/close.js#close_account)
   - [Client - Create](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/client_nodejs/create.js#create_account)
   - [Client - Create wallet](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/client_nodejs/create_wallet.js#create_wallet)
