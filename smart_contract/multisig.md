@@ -1,6 +1,6 @@
 ## Smart Contract
 
-#### Re-create a Contract Account
+#### Multisig - Contract account + normal account
 
 The goal of this test is to check if it is possible to pay an address, when we have a multisig account.
 The multisig account is performed by a normal address and a contract account together.
