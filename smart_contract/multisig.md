@@ -81,12 +81,12 @@ algorand@5856b1252bfb:/opt/algorand/node$
 Finally, the contract account must sign the transaction.
 
 ```
-goal clerk send -a 100000 -t CMTIY5FU45V6HT6DWOFYMUGHP6O7FRW64UXYHCYBXXLW7Q6KRFLTCOEQJY -L mydelegatedsig.lsig -d data/ -o hello-world.txn
+goal clerk send -a 100000 -t CMTIY5FU45V6HT6DWOFYMUGHP6O7FRW64UXYHCYBXXLW7Q6KRFLTCOEQJY -L mydelegatedsig.lsig -d data/ -o out.txn
 ```
 
 The transaction is delivered.
 ```
-./goal clerk rawsend --filename="hello-world.txn"
+./goal clerk rawsend --filename="out.txn"
 ```
 
 Final result:
