@@ -73,7 +73,7 @@ We create the output file, ready to be sent.
 The address must sign the transaction.
 
 ```
-goal clerk multisig sign -t hello-world.txn -a UPQMPCYUSQO743TC45Y45N7XCQ5GINGNYTZJ6PMPCDZYT6MBHSJQLYXVSY
+goal clerk multisig sign -t out.txn -a UPQMPCYUSQO743TC45Y45N7XCQ5GINGNYTZJ6PMPCDZYT6MBHSJQLYXVSY
 Please enter the password for wallet 'myWallet':
 algorand@5856b1252bfb:/opt/algorand/node$
 ```
@@ -92,7 +92,7 @@ The transaction is delivered.
 Final result:
 
 ```
-algorand@aa660d80813b:/opt/algorand/node$ ./goal clerk rawsend --filename="hello-world.txn"
+algorand@aa660d80813b:/opt/algorand/node$ ./goal clerk rawsend --filename="out.txn"
 Raw transaction ID SWPOJITX6GP2WWEOA6A6XQXU5BS7W7LGPLCIIQCEAKO7STOZOVLQ issued
 Transaction SWPOJITX6GP2WWEOA6A6XQXU5BS7W7LGPLCIIQCEAKO7STOZOVLQ still pending as of round 9019561
 Transaction SWPOJITX6GP2WWEOA6A6XQXU5BS7W7LGPLCIIQCEAKO7STOZOVLQ committed in round 9019563
