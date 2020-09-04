@@ -89,4 +89,14 @@ The transaction is delivered.
 ./goal clerk rawsend --filename="hello-world.txn"
 ```
 
+Final result:
+
+```
+algorand@aa660d80813b:/opt/algorand/node$ ./goal clerk rawsend --filename="hello-world.txn"
+Raw transaction ID SWPOJITX6GP2WWEOA6A6XQXU5BS7W7LGPLCIIQCEAKO7STOZOVLQ issued
+Transaction SWPOJITX6GP2WWEOA6A6XQXU5BS7W7LGPLCIIQCEAKO7STOZOVLQ still pending as of round 9019561
+Transaction SWPOJITX6GP2WWEOA6A6XQXU5BS7W7LGPLCIIQCEAKO7STOZOVLQ committed in round 9019563
+algorand@aa660d80813b:/opt/algorand/node$
+```
+
 ------
