@@ -1,6 +1,6 @@
 ## Transactions
 
-#### Single transaction
+#### Single transaction - no sign
 
 This is the process to create and send a single transaction from one address to another.
 
