@@ -5,7 +5,7 @@
 The goal of this test is to check if it is possible to pay an address, when we have a multisig account.
 The multisig account is performed by a normal address and a contract account together.
 
-First thing first, we created a wallet and an account.
+First thing first, we create a wallet and an account.
 
 ```
 algorand@5856b1252bfb:/opt/algorand/node$ goal wallet new myWallet
