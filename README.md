@@ -27,4 +27,4 @@
   - [Client - Send transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/client_nodejs/send.js#send_single_transaction)
 
 - Labels
-  - [Empty label]()
+  - [Empty label](https://github.com/blockchain-unica/asc1-experiments/blob/master/labels/empty_label.md#empty_label)
