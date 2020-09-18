@@ -3,7 +3,7 @@
 #### Test 1
 
 
-Consideriamo ora il caso delle labels. Scriviamo e proviamo a compilare il programma seguente:
+We wrote and compiled the following sample contained labels:
 
 ```
 algorand@d414f5a29fd9:/opt/algorand/node$ cat program.teal
@@ -13,8 +13,7 @@ int 1
 algorand@d414f5a29fd9:/opt/algorand/node$ goal clerk compile program.teal 
 program.teal: CGAYBPJZPD4FZTRS3OIGR4KLC2LCY5PDJIFY2ZLYN5R6AGESD3CSPZAQLQ
 ```
-
-Digitando il comando ```ls -l``` vediamo l'intera struttura del nodo.
+We can explore the entire structure of the node typing the command: ```ls -l```.
 
 ```
 algorand@d414f5a29fd9:/opt/algorand/node$ ls -l
@@ -45,29 +44,29 @@ drwxr-xr-x 6 algorand algorand     4096 Sep 17 09:20 genesisfiles
 -rwxr-xr-x 1 algorand algorand 29816064 Sep 17 09:20 updater
 ```
 
-Il programma genera l'indirizzo ```CGAYBPJZPD4FZTRS3OIGR4KLC2LCY5PDJIFY2ZLYN5R6AGESD3CSPZAQLQ```.
+The program produced the address: ```CGAYBPJZPD4FZTRS3OIGR4KLC2LCY5PDJIFY2ZLYN5R6AGESD3CSPZAQLQ```.
 
-Possiamo usare il dispenser di Algorand (come in precedenza) per creare un piccolo deposito.
+We use  tha Algorand dispenser to create a deposit.
 
 ```
 algorand@d414f5a29fd9:/opt/algorand/node$ goal account balance -a CGAYBPJZPD4FZTRS3OIGR4KLC2LCY5PDJIFY2ZLYN5R6AGESD3CSPZAQLQ
 100000000 microAlgos
 ```
 
-Creiamo due nuovi accounts che ci saranno utili come sender e receiver di una transazione. Lo possiamo fare con il client che troviamo [qui](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/client_nodejs/create.js).
+We created two new accounts that will be used as sender and receiver for the transaction. To create an account we can use the tool [here](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/client_nodejs/create.js).
 
 ```
 Address 1: OLMPFYFQAQ2NWEUQJ4SA5IB3AGFVMYM74XMH5RVZ4AE5I65K3FZW5KCWRY
 Address 2: YHRSXODWG526N4QQ6FP7RHRGP4RCNIZX53EHQWXRTFV4DHNDFMBJG76RSU
 ```
 
-Prepariamo una transazione ed inviamola.
+We prepare the transaction and send it.
 
 ```
 algorand@d414f5a29fd9:/opt/algorand/node$ goal clerk send -a 7000000 --from-program program.teal -t YHRSXODWG526N4QQ6FP7RHRGP4RCNIZX53EHQWXRTFV4DHNDFMBJG76RSU -o out.txn -d data/
 ```
 
-Facciamo un inspect del contenuto del file out.txn
+We inspect the file out.txn
 
 ```
 algorand@d414f5a29fd9:/opt/algorand/node$ goal clerk inspect out.txn   
@@ -91,7 +90,7 @@ out.txn[0]
 }
 ```
 
-Proviamo ad inviare la transazione.
+We send the transaction.
 
 ```
 goal clerk rawsend -f out.txn -d data/
