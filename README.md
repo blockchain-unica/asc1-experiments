@@ -27,6 +27,9 @@
   - [Client - Send transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/client_nodejs/send.js#send_single_transaction)
   - [Pay from a sender to itself](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-pay-snd_eq_rcv.md)
   - [Close account](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-close.md)
+  - [Asset generation](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#gen-transaction)
+  - [Asset opt-in](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#optin-transaction)
+  - [Asset burn](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#burn-transaction)
 
 - Labels
   - [Empty label](https://github.com/blockchain-unica/asc1-experiments/blob/master/labels/empty_label.md#empty_label)
