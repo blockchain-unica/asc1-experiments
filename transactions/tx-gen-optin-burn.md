@@ -111,7 +111,7 @@ goal account list
 ```
 
 
-### Burn (creator is manager)
+### Burn (creator without all token units)
 
 Destroying the asset fails, because the the transaction issuer is not the manager:
 ```
@@ -127,6 +127,8 @@ goal asset destroy --creator PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY
 
 Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool.Remember: transaction HKEF2IFDNPU4F3IA6FJP4FJX5ZZ6TVHA2M3HAH5OJB2JKA4COETQ: cannot destroy asset: creator is holding only 999/1000
 ```
+
+### Burn (creator is manager)
 
 We tranfer all the units to the manager account, and then retry the destroy transaction:
 
