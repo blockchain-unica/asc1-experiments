@@ -1,6 +1,6 @@
 ## Assets
 
-### Gen transaction
+### Gen
 
 Assume that we have a testnet account with some ALGOs:
 
@@ -54,7 +54,7 @@ Encountered errors in sending 1 transactions:
 Rejected transactions written to tx-gen-asset.tx.rej
 ```
 
-### Opt-in transaction
+### Opt-in
 
 Send 0 unit of the new asset to to opt-in:
 
@@ -84,9 +84,6 @@ Transaction UQS6DAOGFX4PL6XS2ZSI6DI2K3CLXYHCYVHYQLUL2IJBC3BDZ5CQ still pending a
 Transaction UQS6DAOGFX4PL6XS2ZSI6DI2K3CLXYHCYVHYQLUL2IJBC3BDZ5CQ committed in round 9382296
 ```
 
-
-### Transfer asset
-
 We try again to send 1 unit of the new asset to another address (which now has opted in):
 
 ```
@@ -114,7 +111,7 @@ goal account list
 ```
 
 
-### Burn asset
+### Burn
 
 Destroying the asset fails, because the the transaction issuer is not the manager:
 ```
