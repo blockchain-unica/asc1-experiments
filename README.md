@@ -29,6 +29,7 @@
   - [Close account](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-close.md)
   - [Asset generation](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#gen)
   - [Asset opt-in](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#opt-in)
+  - [Asset burn (creator without all token units)](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#burn-creator-without-all-token-units)
   - [Asset burn (creator is manager)](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#burn-creator-is-manager)
   - [Asset burn (creator is not manager)](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#burn-creator-is-not-manager)
 
