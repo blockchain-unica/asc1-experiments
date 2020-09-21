@@ -153,5 +153,32 @@ goal account list
 	  0 base units (no decimal info)  (creator , ID 12277079)
 ```
 
+This seems an implementation error, because the account WGJ... still records the presence of the asset.
+To confirm the error, we try to opt-in again for the same account:
+
+```
+goal asset send -a 0 --assetid 12277079 -f WGJVDVVHS7VBNNPBW4CXR4IRVS3J6IHSU3TV57BE5QMHD74HNYPNS62NV4 -t WGJVDVVHS7VBNNPBW4CXR4IRVS3J6IHSU3TV57BE5QMHD74HNYPNS62NV4 -o tx-optin-asset2.tx -s
+
+goal clerk rawsend -f tx-optin-asset2.tx
+
+Raw transaction ID 5NJ3IIUVPIUD5ZWJLYJEP5RQXZC7MV234I47EQENS4SXW457MRTQ issued
+Transaction 5NJ3IIUVPIUD5ZWJLYJEP5RQXZC7MV234I47EQENS4SXW457MRTQ still pending as of round 9382949
+Transaction 5NJ3IIUVPIUD5ZWJLYJEP5RQXZC7MV234I47EQENS4SXW457MRTQ committed in round 9382951
+```
+
+The opt-in transaction succeeds, although the asset has been destroyed.
+
+We try to opt-in for the destroyed asset from another account:
+
+```
+goal asset send -a 0 --assetid 12277079 -f AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A -t AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A -o tx-optin-asset3.tx -s
+
+goal clerk rawsend -f tx-optin-asset3.tx
+
+Warning: Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool.Remember: transaction YORE2SDEKRDCIUELMZBRB3DW65POOTDLCIHCUU2YSHVFUAG7FB4Q: asset 12277079 does not exist or has been deleted
+
+Encountered errors in sending 1 transactions:
+  YORE2SDEKRDCIUELMZBRB3DW65POOTDLCIHCUU2YSHVFUAG7FB4Q: HTTP 400 Bad Request: TransactionPool.Remember: transaction YORE2SDEKRDCIUELMZBRB3DW65POOTDLCIHCUU2YSHVFUAG7FB4Q: asset 12277079 does not exist or has been deleted
+```
 
 ------
