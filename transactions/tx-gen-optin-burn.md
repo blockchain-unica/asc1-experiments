@@ -111,7 +111,7 @@ goal account list
 ```
 
 
-### Burn
+### Burn (creator is manager)
 
 Destroying the asset fails, because the the transaction issuer is not the manager:
 ```
@@ -179,6 +179,41 @@ Warning: Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool
 
 Encountered errors in sending 1 transactions:
   YORE2SDEKRDCIUELMZBRB3DW65POOTDLCIHCUU2YSHVFUAG7FB4Q: HTTP 400 Bad Request: TransactionPool.Remember: transaction YORE2SDEKRDCIUELMZBRB3DW65POOTDLCIHCUU2YSHVFUAG7FB4Q: asset 12277079 does not exist or has been deleted
+```
+
+
+### Burn (creator is not manager)
+
+We create another asset, and configure its asset manager to another address:
+```
+goal asset create --creator PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU --total 1000
+
+Issued transaction from account PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU, txid IK4IWIVOIQ2YSE4J3AIOG5W73JFEGSKDNBLK6YMF4VX4BV5MOMRA (fee 1000)
+Transaction IK4IWIVOIQ2YSE4J3AIOG5W73JFEGSKDNBLK6YMF4VX4BV5MOMRA still pending as of round 9383578
+Transaction IK4IWIVOIQ2YSE4J3AIOG5W73JFEGSKDNBLK6YMF4VX4BV5MOMRA committed in round 9383580
+Created asset with asset index 12277140
+
+goal asset config --assetid 12277140 --manager PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU --new-manager AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A
+Please enter the password for wallet 'bart': 
+Issued transaction from account PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU, txid 7MDYY5MQAK6S5E4YMY3TZVBV3ZC6HLDBK2U5BHPYZ7DHASIVIZCQ (fee 1000)
+Transaction 7MDYY5MQAK6S5E4YMY3TZVBV3ZC6HLDBK2U5BHPYZ7DHASIVIZCQ still pending as of round 9389433
+Transaction 7MDYY5MQAK6S5E4YMY3TZVBV3ZC6HLDBK2U5BHPYZ7DHASIVIZCQ committed in round 9389435
+```
+
+We try to burn the asset, but the transaction fails because it is not signed by the manager:
+```
+goal asset destroy --creator PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU --assetid 12277140
+
+Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool.Remember: transaction HNF4E2HIJCRLXU57JB2FGPYYC2HAGEZGODC4TYO4XP3RC2BPJ2QQ: this transaction should be issued by the manager. It is issued by PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU, manager key AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A
+```
+
+The burn succeeds if it is signed by the manager:
+```
+goal asset destroy --manager AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A --assetid 12277140
+
+Issued transaction from account AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A, txid CCLS7T7NKIVJHU5XTARWL5ZGAC7Y2MJHL5Y5IWC3NQTKJ52TWR4A (fee 1000)
+Transaction CCLS7T7NKIVJHU5XTARWL5ZGAC7Y2MJHL5Y5IWC3NQTKJ52TWR4A still pending as of round 9389538
+Transaction CCLS7T7NKIVJHU5XTARWL5ZGAC7Y2MJHL5Y5IWC3NQTKJ52TWR4A committed in round 9389540
 ```
 
 ------
