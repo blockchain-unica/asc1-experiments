@@ -1,5 +1,7 @@
 ## Pay transaction with sender equal to receiver
 
+The goal of this experiment is to test the behaviour of a Pay transaction where the snd and rcv fields are equal.
+
 Assume that we have a testnet account with some ALGOs:
 
 ```
