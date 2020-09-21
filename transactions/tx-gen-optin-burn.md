@@ -42,6 +42,7 @@ tx-gen-asset.tx[0]
     "xaid": 12277079
   }
 }
+```
 
 As expected, the transaction is rejected:
 ```
