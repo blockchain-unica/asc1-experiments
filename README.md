@@ -25,6 +25,7 @@
   - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction.md#single_transaction)
   - [Single transaction with no sign](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction_no_sign.md#send_single_transaction_no_sign)
   - [Client - Send transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/client_nodejs/send.js#send_single_transaction)
+  - [Pay from a sender to itself](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-pay-snd_eq_rcv.md)
 
 - Labels
   - [Empty label](https://github.com/blockchain-unica/asc1-experiments/blob/master/labels/empty_label.md#empty_label)
