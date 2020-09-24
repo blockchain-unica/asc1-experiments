@@ -1,5 +1,7 @@
 ## Close transaction
 
+### Close to another address
+
 Assume that we have a testnet account with some ALGOs:
 
 ```
@@ -57,6 +59,35 @@ The transaction is successful: the account balance is zero.
 goal account balance -a PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU
 
 0 microAlgos
+```
+
+
+
+### Close to the sender
+
+
+Consider a state where:
+```
+goal account list
+
+AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A
+	99895000 microAlgos
+PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU
+	100281000 microAlgos
+```
+
+We construct a transaction which pays 0 microALGOS from the account AYQ... to itself, and closes the account to itself:
+
+```
+goal clerk send -a 0 -f AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A -t AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A -c AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A -o tx-close-algo.tx
+```
+
+Sending the transaction fails:
+```
+goal clerk rawsend -f tx-close-algo.tx
+
+Encountered errors in sending 1 transactions:
+  FOL7PF7T6D4X62A3AY4YUO7F3U5RUOPYETOGEOBTHGVT3UYJ7VBQ: HTTP 400 Bad Request: transaction cannot close account to its sender AYQJVSEBPRM26SOLWRFFOULELKONQKVAKPRDBI6DQRRJTESLUZDDFCZS3A
 ```
 
 ------
