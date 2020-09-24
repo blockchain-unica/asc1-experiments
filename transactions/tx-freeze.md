@@ -96,3 +96,32 @@ Warning: Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool
 Encountered errors in sending 1 transactions:
   6NX3BO23UXDF5DRQTECMPOBY6Z3BRJGQGKX6KIZRRGHC3KDZV53A: HTTP 400 Bad Request: TransactionPool.Remember: transaction 6NX3BO23UXDF5DRQTECMPOBY6Z3BRJGQGKX6KIZRRGHC3KDZV53A: asset frozen in recipient
 ```
+
+
+### Freeze non-existing asset
+
+Trying to freeze a deleted asset fails, as expected:
+```
+goal asset freeze --account WGJVDVVHS7VBNNPBW4CXR4IRVS3J6IHSU3TV57BE5QMHD74HNYPNS62NV4 --assetid 12277140 --freeze --freezer PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU
+
+Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool.Remember: transaction C7HKDGNUFVKKSBL7O6M3NQEZJL7ZYKDZYCVBHDXZWHZWBKK4IOGQ: asset 12277140 does not exist or has been deleted
+```
+
+### Freeze non-owned asset
+
+We create a new asset:
+```
+goal asset create --creator PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU --total 10
+
+Issued transaction from account PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU, txid RLCGGFC7SG52YK4OABWN3WRYLMZCLTRN3FOJXQV5UPI7WZC66G6A (fee 1000)
+Transaction RLCGGFC7SG52YK4OABWN3WRYLMZCLTRN3FOJXQV5UPI7WZC66G6A still pending as of round 9438868
+Transaction RLCGGFC7SG52YK4OABWN3WRYLMZCLTRN3FOJXQV5UPI7WZC66G6A committed in round 9438870
+Created asset with asset index 12284315
+```
+
+Trying to freeze an asset not owned by the account fails:
+```
+goal asset freeze --account WGJVDVVHS7VBNNPBW4CXR4IRVS3J6IHSU3TV57BE5QMHD74HNYPNS62NV4 --assetid 12284315 --freeze --freezer PB3WPU4KGRK3K3DRZTGIARSVJSUKHL2LG5B4HDMEOBLDRBPKTOY734KFKU
+
+Couldn't broadcast tx with algod: HTTP 400 Bad Request: TransactionPool.Remember: transaction S46YHGBYORUIMJVU3QWPUG7ZDKT6PB55MZIWTXYW2DTTP74N5HFQ: asset not found in account
+```
