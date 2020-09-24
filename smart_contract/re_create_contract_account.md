@@ -15,9 +15,9 @@ attack at the dawm snake verbs ranch fruit Italy apple tree woman male at
 Then, we codified this key obtaining a base64 string.
 
 ```
-PS C:\Users\Cristian Lepore\Downloads\sandbox> python3 -c "import hashlib;import base64;print(base64.b64encode(hashlib.sha256(str('attack at the dawm snake verbs ranch fruit Italy apple tree woman male at').encode('utf-8')).digest()).decode('utf-8'))"
+PS sandbox> python3 -c "import hashlib;import base64;print(base64.b64encode(hashlib.sha256(str('attack at the dawm snake verbs ranch fruit Italy apple tree woman male at').encode('utf-8')).digest()).decode('utf-8'))"
 G/Pk8y3Rzy9eyowgCdx+NREYyIxYR4BeFuTpMESfz10=
-PS C:\Users\Cristian Lepore\Downloads\sandbox> 
+PS sandbox> 
 ```
 
 We wrote and compiled the program as described [here](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/create_contract_account.md#create_contract_account).
