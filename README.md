@@ -41,6 +41,7 @@
   - [Freeze non-owned asset](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#freeze-non-owned-asset)
   - [Freezing in the freezer manager](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#freezing-in-the-freezer-manager)
   - [Opt-in a frozen asset](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#opt-in-a-frozen-asset)
+  - [Sending zero asset units](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#sending-zero-asset-units)
 
 - Labels
   - [Empty label](https://github.com/blockchain-unica/asc1-experiments/blob/master/labels/empty_label.md#empty_label)
