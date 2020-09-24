@@ -33,6 +33,10 @@
   - [Asset burn (creator is manager)](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#burn-creator-is-manager)
   - [Asset burn (creator is not manager)](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#burn-creator-is-not-manager)
   - [Asset delegate](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-asset-config.md#delegate)
+  - [Send frozen asset](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#send-frozen-asset)
+  - [Freeze twice](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#freeze-twice)
+  - [Unfreezeing an asset](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#unfreezing-an-asset)
+  - [Receive frozen asset](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-freeze.md#receive-frozen-asset)
 
 - Labels
   - [Empty label](https://github.com/blockchain-unica/asc1-experiments/blob/master/labels/empty_label.md#empty_label)
