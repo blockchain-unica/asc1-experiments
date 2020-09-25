@@ -1,6 +1,5 @@
 # A formal model of Algorand smart contracts
-## Coherence-checking experiments
-
+**Coherence-checking experiments**
 
 - Account
   - [Delete](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/delete.md#delete_account)
