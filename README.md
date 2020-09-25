@@ -1,4 +1,5 @@
-# asc1-experiments
+# A formal model of Algorand smart contracts
+## Coherence-checking experiments
 
 
 - Account
