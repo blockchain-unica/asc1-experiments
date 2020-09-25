@@ -2,7 +2,7 @@
 
 #### Close a Contract Account
 
-We have previously created a contract account as shown [here](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/create_contract_account.md#create_contract_account).
+We have previously created a contract account.
 This is the address of our contract accont.
 
 ```
@@ -45,7 +45,7 @@ algorand@b89f2bc2d65b:/opt/algorand/node$ goal account balance -a HQALLYAILGTWTD
 algorand@b89f2bc2d65b:/opt/algorand/node$
 ```
 
-Once the contract account is closed, we can still send new transaction from a different account to the closed contract account. We used the previous code deployed [here](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/client_nodejs/send.js). Be aware to modify the receiver and the passphrase.
+Once the contract account is closed, we can still send new transaction from a different account to the closed contract account. Be aware to modify the receiver and the passphrase.
 
 [Algorand's Doc - Using SDKs with Stateless Smart Contracts](https://developer.algorand.org/docs/features/asc1/stateless/sdks/) 
 

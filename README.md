@@ -1,5 +1,8 @@
 # asc1-experiments
 
+#### Experiments dataset for the paper "A formal model of Algorand smart contracts"
+
+
 - Account
   - [Delete](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/delete.md#delete_account)
   - [Recover](https://github.com/blockchain-unica/asc1-experiments/blob/master/account/recover.md#recover_account)
@@ -15,7 +18,7 @@
 
 - Smart contract
   - [Create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/create_contract_account.md#create_contract_account)
-  - [Close a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/close_contract_account%20copy.md#close_contract_account)
+  - [Close a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/close_contract_account.md#close_contract_account)
   - [Creating the same Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/same_contract_account.md#same_script)
   - [Re-create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/re_create_contract_account.md#re_create_contract_account)
   - [Multisig](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/multisig.md#multisig)
@@ -25,7 +28,7 @@
   - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction.md#single_transaction)
   - [Single transaction with no sign](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction_no_sign.md#send_single_transaction_no_sign)
   - [Client - Send transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/client_nodejs/send.js#send_single_transaction)
-  - [Pay from a sender to itself](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-pay-snd_eq_rcv.md)
+  - [Pay from a sender to itself](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-pay-snd_eq_rcv.md#pay-sender-eq-receiver)
   - [Close to another address](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-close.md#close-to-another-address)
   - [Close to the sender](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-close.md#close-to-the-sender)
   - [Asset generation](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/tx-gen-optin-burn.md#gen)
