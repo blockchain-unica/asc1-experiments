@@ -14,7 +14,7 @@ Entering /bin/bash session in the sandbox container...
 Be sure to have a wallet. You can verify your wallet ID by typing the command ```./goal wallet list``` from within the shell.
 
 ```
-Aalgorand@1238443847f0:/opt/algorand/node$ ./goal wallet list
+algorand@1238443847f0:/opt/algorand/node$ ./goal wallet list
 ##################################################
 Wallet: myWallet (default)
 ID:     363b261e61c294cd85d890fa08202234
