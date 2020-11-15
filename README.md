@@ -15,12 +15,17 @@
   - [Open a shell](https://github.com/blockchain-unica/asc1-experiments/blob/master/node_interaction/open_shell.md#open_shell)
 
 - Smart contract
-  - [Create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/create_contract_account.md#create_contract_account)
-  - [Close a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/close_contract_account.md#close_contract_account)
-  - [Creating the same Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/same_contract_account.md#same_script)
-  - [Re-create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/re_create_contract_account.md#re_create_contract_account)
-  - [Multisig](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/multisig.md#multisig)
-  - [Oracle](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/oracle.md#oracle)
+  - Stateless
+    - [Create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateless/create_contract_account.md#create_contract_account)
+    - [Close a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateless/close_contract_account.md#close_contract_account)
+    - [Creating the same Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateless/same_contract_account.md#same_script)
+    - [Re-create a Contract account](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateless/re_create_contract_account.md#re_create_contract_account)
+    - [Multisig](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateless/multisig.md#multisig)
+  - Stateful
+    - [Example stateful contract](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateful/example_stateful_contract.md)
+    - [Local state](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateful/local_state.md)
+    - [Global state](https://github.com/blockchain-unica/asc1-experiments/blob/master/smart_contract/stateful/global_state.md)
+    
 
 - Transactions
   - [Single transaction](https://github.com/blockchain-unica/asc1-experiments/blob/master/transactions/single_transaction.md#single_transaction)
@@ -47,3 +52,7 @@
 
 - Labels
   - [Empty label](https://github.com/blockchain-unica/asc1-experiments/blob/master/labels/empty_label.md#empty_label)
+
+- Use cases
+  - Stateless
+    - [Oracle](https://github.com/blockchain-unica/asc1-experiments/blob/master/use-cases/stateless/oracle.md#oracle)
