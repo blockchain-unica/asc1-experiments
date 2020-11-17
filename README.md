@@ -55,4 +55,6 @@
 
 - Use cases
   - Stateless
-    - [Oracle](https://github.com/blockchain-unica/asc1-experiments/blob/master/use-cases/stateless/oracle.md#oracle)
+    - [Oracle](https://github.com/blockchain-unica/asc1-experiments/blob/master/use_cases/stateless/oracle.md#oracle)
+  - Stateful
+    - [Permissioned voting](https://github.com/blockchain-unica/asc1-experiments/blob/master/use_cases/stateful/permissioned_voting.md)
