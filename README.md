@@ -58,3 +58,4 @@
     - [Oracle](https://github.com/blockchain-unica/asc1-experiments/blob/master/use_cases/stateless/oracle.md#oracle)
   - Stateful
     - [Permissioned voting](https://github.com/blockchain-unica/asc1-experiments/blob/master/use_cases/stateful/permissioned_voting.md)
+    - [Crowdfunding](https://github.com/blockchain-unica/asc1-experiments/blob/master/use_cases/stateful/crowdfunding.md#crowdfunding)
