@@ -1,6 +1,6 @@
 ## Permissionless voting
 
-The following example, written in PyTeal is reported [here](https://developer.algorand.org/articles/creating-stateful-algorand-smart-contracts-python-pyteal/). The contract logic (written in TEAL) is fully explained [here](https://developer.algorand.org/solutions/example-permissionless-voting-stateful-smart-contract-application/).
+The following example (written in PyTeal) is reported [here](https://developer.algorand.org/articles/creating-stateful-algorand-smart-contracts-python-pyteal/). The contract logic (written in TEAL) is fully explained [here](https://developer.algorand.org/solutions/example-permissionless-voting-stateful-smart-contract-application/).
 
 The permissionless voting allows every account to vote, but only once. 
 
@@ -12,8 +12,7 @@ To build this contract we have to handle 4 parts:
 
 ### Create voting smart contract
 
-First of all we must create the voting smart contract. The contract takes four parameters that represent the range (expressed in rounds) in which an account can opt in and vote to the contract. 
-
+First of all, we must create the voting smart contract. The contract takes four parameters that represent the range (expressed in rounds) in which an account can opt in and vote to the contract. 
 
 We have the following accounts:
 
@@ -158,4 +157,16 @@ goal app read --global --app-id 13203524
     "tt": 2
   }
 }
+```
+
+The code that handles the closeout is reported here:
+
+```
+on_closeout = Seq([
+        get_vote_of_sender,
+        If(And(Global.round() <= App.globalGet(Bytes("VoteEnd")), get_vote_of_sender.hasValue()),
+            App.globalPut(get_vote_of_sender.value(), App.globalGet(get_vote_of_sender.value()) - Int(1))
+        ),
+        Return(Int(1))
+    ])
 ```
