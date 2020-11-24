@@ -4,7 +4,7 @@ We wrote the code of the permissioned voting in Pyteal version, starting from th
 
 The logic of this contract is fully explained [here](https://developer.algorand.org/solutions/example-permissioned-voting-stateful-smart-contract-application/).
 
-To build this contract we have to handle this 4 parts:
+To build this contract we have to handle this 5 parts:
 - Create asset
 - Create the voting smart contract
 - Register to vote
