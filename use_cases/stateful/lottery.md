@@ -72,6 +72,7 @@ goal app optin --from ZYLICUCADSRXKBEKPDMGBHWOWPHS6TVPJIGTDENHY4HPD4RUFKZYE2Z4IY
 Every N player has to commit to the stateful smart contract:
 - a secret (that will be hashed by the contract with SHA256)
 - a specific amount: 1+(N*((N-1)*V)). 
+
 Indeed, every player has to add a fee to handle the fund. In this case every player will add 500000 as fee. 
 If the hashed secret is equal to the hash of another player, the transaction will be rejected.
 The application call and the transaction who sends ALGOs to the fund must be grouped.
