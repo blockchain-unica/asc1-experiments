@@ -5,8 +5,8 @@ We three accounts with the following addresses:
 ```
 # goal account list
 [offline]	O	IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q	0 microAlgos
-[offline]	A	2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU	0 microAlgos	*Default
-[offline]	B	3MTDHUNSO4RXC3ZPJ67C7TLEOFHFO2UNXHE34PN52VN2CSNYSEOXXHPFNY	0 microAlgos
+[offline]	A	2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU	10000000 microAlgos	*Default
+[offline]	B	3MTDHUNSO4RXC3ZPJ67C7TLEOFHFO2UNXHE34PN52VN2CSNYSEOXXHPFNY	10000000 microAlgos
 ```
 The smart signature accepts all and only the following transactions:
 - a close transaction to A, provided that the transaction contains the argument 0 and is signed by O;
