@@ -1,59 +1,33 @@
-## Smart Contract
+## Oracle
 
-#### Testing teal programs - Oracle
-
-We create a wallet and an account.
-
+We experiment with a smart signature that transfers all the funds of a contract account to A or B, depending on the choice of an orale O.
+We three accounts with the following addresses:
 ```
-algorand@5856b1252bfb:/opt/algorand/node$ goal wallet new myWallet
-Please choose a password for wallet 'myWallet':
-Please confirm the password:
-Creating wallet...
-Created wallet 'myWallet'
-Your new wallet has a backup phrase that can be used for recovery.
-Keeping this backup phrase safe is extremely important.
-Would you like to see it now? (Y/n): n
-algorand@5856b1252bfb:/opt/algorand/node$ 
+# goal account list
 ```
+The smart signature accepts all and only the following transactions:
+- a close transaction to A, provided that the transaction contains the argument 0 and is signed by O;
+- a close transaction to B, provided that the transaction contains the argument 1 and is signed by O.
 
-We also defined three accounts with the following addresses:
-
+We define the smart signature in PyTeal as follows:
 ```
-Address 1: 6ZHGHH5Z5CTPCF5WCESXMGRSVK7QJETR63M3NY5FJCUYDHO57VTCMJOBGY
-Address 2: FP2UC5HN4TJ7AIK6OY5RAS52XA6GYCOQUK3HTR55UOACPZM6RCUKAP5VAM
-Address 3: 7J6SHHBCIFAGBBQMJOXAKV2LCFU5CLXADWCMOJFDKM4MCDHSDYY3XV57QI
-```
-
-We used these three account into the next pyTeal program.
-
-```
-# adapted from:
-# https://developer.algorand.org/articles/verify-signatures-and-signed-data-within-algorand-smart-contracts/
-
 from pyteal import *
 
-"""Versig-arg"""
+A = Addr("KUWCLDWCJGS7RKUKUWUMDXUUXG6W3I4Y4FFKU2ARXXK2O7TWJHSAKWXFMI")
+B = Addr("L5YTCHB4OJXMYIW336MAYQ5V4MMFU4ACAMQZQX4PU5IBR4UNHGCJ2NJLUY")
+O = Addr("JIDFTPWM2O65L5DWZ2FRMCZVPMGP44VYPHOV3G4XEX2JYO25G4P2ZHUT24")
 
-# python -c "import os, base64; print(base64.b64encode('this is a test').decode('utf-8'))"
+arg0 = Bytes("0")
+arg1 = Bytes("1")
 
-a = Addr("6ZHGHH5Z5CTPCF5WCESXMGRSVK7QJETR63M3NY5FJCUYDHO57VTCMJOBGY")
-b = Addr("FP2UC5HN4TJ7AIK6OY5RAS52XA6GYCOQUK3HTR55UOACPZM6RCUKAP5VAM")
-o = Addr("7J6SHHBCIFAGBBQMJOXAKV2LCFU5CLXADWCMOJFDKM4MCDHSDYY3XV57QI")
-timeout = 3000
+def oracle(tmpl_a = A, tmpl_b = B, tmpl_o = O):
 
-event0 = Bytes("0")
-event1 = Bytes("1")
+    typeOK   = And(Txn.type_enum() == TxnType.Payment, Txn.amount() == Int(0))
+    versigO  = Ed25519Verify(Arg(0), Arg(1), tmpl_o)
+    closeToA = And(Arg(0) == arg0, versigO, Txn.close_remainder_to() == tmpl_a)
+    closeToB = And(Arg(0) == arg1, versigO, Txn.close_remainder_to() == tmpl_b)
 
-def oracle(tmpl_a = a,
-           tmpl_b = b,
-           tmpl_o = o,
-           tmpl_timeout = timeout):
-    type_cond = And(Txn.type_enum() == TxnType.Payment, Txn.amount() == Int(0))
-    versig_cond = Ed25519Verify(Arg(0), Arg(1), tmpl_o)
-    a_timeout_cond = And(Txn.first_valid() > Int(tmpl_timeout), Txn.close_remainder_to() == tmpl_a)
-    a_wins_cond = And(Arg(0) == event0, versig_cond, Txn.close_remainder_to() == tmpl_a)
-    b_wins_cond = And(Arg(0) == event1, versig_cond, Txn.close_remainder_to() == tmpl_b)
-    return And(type_cond, Or(a_timeout_cond, a_wins_cond, b_wins_cond))
+    return And(typeOK, Or(closeToA, closeToB))
 
 if __name__ == "__main__":
     print(compileTeal(oracle(), Mode.Signature))
