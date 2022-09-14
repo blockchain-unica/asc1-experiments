@@ -10,7 +10,7 @@ The smart signature accepts all and only the following transactions:
 - a close transaction to B, provided that the transaction contains the argument 1 and is signed by O.
 
 We define the smart signature in PyTeal as follows:
-```
+```python
 from pyteal import *
 
 A = Addr("KUWCLDWCJGS7RKUKUWUMDXUUXG6W3I4Y4FFKU2ARXXK2O7TWJHSAKWXFMI")
