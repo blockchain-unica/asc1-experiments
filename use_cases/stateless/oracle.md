@@ -4,6 +4,9 @@ We experiment with a smart signature that transfers all the funds of a contract 
 We three accounts with the following addresses:
 ```
 # goal account list
+[offline]	O	IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q	0 microAlgos
+[offline]	A	2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU	0 microAlgos	*Default
+[offline]	B	3MTDHUNSO4RXC3ZPJ67C7TLEOFHFO2UNXHE34PN52VN2CSNYSEOXXHPFNY	0 microAlgos
 ```
 The smart signature accepts all and only the following transactions:
 - a close transaction to A, provided that the transaction contains the argument 0 and is signed by O;
@@ -33,27 +36,35 @@ if __name__ == "__main__":
     print(compileTeal(oracle(), Mode.Signature))
 ```
 
+We produce the TEAL contract by executing the Python code above:
+```
+# python oracle.py > oracle.teal
+```
+
 We compile the code using goal clerk compile and it will generate a contract address that can be funded using the dispenser on testnet.
 
 ```
-algorand@5856b1252bfb: goal clerk compile oracle.teal -d data/
-oracle.teal: HYQIJ3DYAH35IVVCELQSWZK7LB2B5UZJ2GEXX75JNNU6GFOCVBVOOALKM4
+# goal clerk compile oracle.teal
+oracle.teal: NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE
 ```
 
-We prepare the transaction to be sent.
+Use a [[faucet]](https://bank.testnet.algorand.network/) to send some Algos to the contract account.
 
+Now, we prepare a transaction T1 that transfers the funds from the contract to either A or B.
 ```
-algorand@5856b1252bfb:/opt/algorand/node$ goal clerk send --from-program verify_contract.teal -t AP4UC5HN4TJ7AIFJ8DDHLED92F8JE34KUK3HTR55UOACPWGF0DKL0E2JSQ -o tosign.tx --argb64 MA== -d data/
-algorand@5856b1252bfb:/opt/algorand/node$ goal clerk tealsign --sign-txid --keyfile keyfile.sk --lsig-txn tosign.tx --set-lsig-arg-idx 0
+# goal clerk send --from-program oracle.teal -t KUWCLDWCJGS7RKUKUWUMDXUUXG6W3I4Y4FFKU2ARXXK2O7TWJHSAKWXFMI -o T1 --argb64 MA== -d data/
+# goal clerk tealsign --sign-txid --keyfile keyfile.sk --lsig-txn T1 --set-lsig-arg-idx 0
 ```
 
 Where "MA==" represents the encode in base64 of the value zero.
-
 
 The file keyfile.sk has been generated using the following commands.
 
 ```
 algorand@5856b1252bfb:/opt/algorand/node$ goal account export 7J6SHHBCIFAGBBQMJOXAKV2LCFU5CLXADWCMOJFDKM4MCDHSDYY3XV57QI -d data/ -w myWallet
 algorand@5856b1252bfb:/opt/algorand/node$ algokey import -m "mnemonic sentence"  --keyfile keyfile.sk
-algorand@5856b1252bfb:/opt/algorand/node$ goal clerk rawsend -f tosign.tx -d ~/node/data  || true
+```
+
+```
+# goal clerk rawsend -f tosign.tx -d ~/node/data  || true
 ```
