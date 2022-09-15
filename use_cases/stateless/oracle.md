@@ -47,8 +47,7 @@ We translate the oracle from PyTeal to TEAL. This generates a contract address:
 oracle.teal: NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE
 ```
 
-Now, we can either perform a send from some other account or from a [faucet](https://bank.testnet.algorand.network/) to send some Algos 
-(say, 10 Algos) to the contract account.
+Now, we put some Algos (say, 10) in the contract account, by sending them from another account or from a [faucet](https://bank.testnet.algorand.network/).
 After that, we check its balance:
 ```
 # goal account balance -a NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE
