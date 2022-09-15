@@ -96,7 +96,8 @@ T1[0]
 ```
 
 We now have to add to this transaction the signature of O on the value 0.
-To do this, we first need to generate a keyfile for the oracle:
+To do this, we first need to generate a keyfile for the oracle
+(indeed, the following operations must be performed by the user who controls O):
 ```
 # goal account export -a IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q
 ```
@@ -106,11 +107,59 @@ We import this key to a file:
 # algokey import -m "mnemonic sentence"  --keyfile O.sk
 ```
 
+Besides the argument at index 0, specifying the recipient of the funds,
+the oracle contract requires to specify in the argument at index 1 the
+signature of O on the first argument. 
+We achieve this as follows:
 ```
 # goal clerk tealsign --keyfile O.sk --lsig-txn T1 --data-b64 MA==
 Generated signature: cQEiQFdfS2pGbGvVBbfiZPU8XqgB5//gI6zhLhhKzTgKfh7UaEhSry0/IMdytpDbalHPYcrHyPPcKL9AqX2rDA==
 ```
 
+By inspecting the transaction, we see that the signature has been added at index 1:
+```
+# goal clerk inspect T1 
+T1[0]
+{
+  "lsig": {
+    "arg": [
+      "MA==",
+      "cQEiQFdfS2pGbGvVBbfiZPU8XqgB5//gI6zhLhhKzTgKfh7UaEhSry0/IMdytpDbalHPYcrHyPPcKL9AqX2rDA=="
+    ],
+    "l": "#pragma version 2\nintcblock 1 0\nbytecblock 0x30 0x43eff8a60f41c8424a718a8bc819a489b24debad6965807517ffab98d26f85f3 0xd1b083f4f750db706cbf085009f517ff384d5b1fe99108ac96a46b156ef71c3c 0x31 0xdb2633d1b27723716f2f4fbe2fcd64714e576a8db9c9be3dbdd55ba149b8911d\ntxn TypeEnum\nintc_0 // 1\n==\ntxn Amount\nintc_1 // 0\n==\n&&\narg_0\nbytec_0 // \"0\"\n==\narg_0\narg_1\nbytec_1 // addr IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q\ned25519verify\n&&\ntxn CloseRemainderTo\nbytec_2 // addr 2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU\n==\n&&\narg_0\nbytec_3 // \"1\"\n==\narg_0\narg_1\nbytec_1 // addr IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q\ned25519verify\n&&\ntxn CloseRemainderTo\nbytec 4 // addr 3MTDHUNSO4RXC3ZPJ67C7TLEOFHFO2UNXHE34PN52VN2CSNYSEOXXHPFNY\n==\n&&\n||\n&&\nreturn\n"
+  },
+  "txn": {
+    "close": "2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU",
+    "fee": 1000,
+    "fv": 24104806,
+    "gen": "testnet-v1.0",
+    "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
+    "lv": 24105806,
+    "note": "Y1j2Qou16Gs=",
+    "rcv": "2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU",
+    "snd": "NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE",
+    "type": "pay"
+  }
+}
+```
+
+Note that the signature we have produced does not cover the whole transaction,
+but only the contract address and the argument 0.
+We can test this by constructing another transaction from the contract account,
+and checking its signature:
+```
+# goal clerk send -F oracle.teal -t B -c B -o T2 -a 0 --argb64 MQ==
+```
+We sign the argument 0 on T2:
+```
+# goal clerk tealsign --keyfile O.sk --lsig-txn T2 --data-b64 MA== --set-lsig-arg-idx 1
+Wrote signature for T2 to LSig.Args[1]
+Generated signature: cQEiQFdfS2pGbGvVBbfiZPU8XqgB5//gI6zhLhhKzTgKfh7UaEhSry0/IMdytpDbalHPYcrHyPPcKL9AqX2rDA==
+```
+Note that we have obtained exactly the same signature as before!
+However, this is not a security issue, because the contract checks both the argument and the signature.
+
+We can finally publish the transaction T1 to the blockchain:
 ```
 # goal clerk rawsend -f T1
 ```
