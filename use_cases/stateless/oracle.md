@@ -54,19 +54,22 @@ After that, we check the balance of the contract account:
 10000000 microAlgos
 ```
 
-We prepare a transaction T1 that transfers all the funds from the contract account to either A.
-To do this, the contract requires that the argument at index 0 contains the base64 encoding of 0.
-We use the first command to obtain such an encoding:
+Assume that A has agreed with the oracle O that she is will receive the funds in the contract.
+To do this, we must prepare a send transaction where the argument at index 0 contains the base64 encoding of 0.
+We first obtain such an encoding:
 ```
 # echo -n 0 | base64
 MA==
 ```
 
-We prepare a transaction T1 that transfers all the funds from the contract account to either A.
+We now prepare a transaction T1 that transfers all the funds from the contract account to A.
+The option "-c A" indicates that T1 is a close transaction.
+The argument is included through the option --argb64:
 ```
-# goal clerk send -F oracle.teal -t A -o T1 -a 0 --argb64 MA==
+# goal clerk send -F oracle.teal -t A -c A -o T1 -a 0 --argb64 MA==
 ```
 
+By inspecting the transaction, we see that the it contains exactly the given argument:
 ```
 # goal clerk inspect T1
 T1[0]
@@ -78,12 +81,13 @@ T1[0]
     "l": "#pragma version 2\nintcblock 1 0\nbytecblock 0x30 0x43eff8a60f41c8424a718a8bc819a489b24debad6965807517ffab98d26f85f3 0xd1b083f4f750db706cbf085009f517ff384d5b1fe99108ac96a46b156ef71c3c 0x31 0xdb2633d1b27723716f2f4fbe2fcd64714e576a8db9c9be3dbdd55ba149b8911d\ntxn TypeEnum\nintc_0 // 1\n==\ntxn Amount\nintc_1 // 0\n==\n&&\narg_0\nbytec_0 // \"0\"\n==\narg_0\narg_1\nbytec_1 // addr IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q\ned25519verify\n&&\ntxn CloseRemainderTo\nbytec_2 // addr 2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU\n==\n&&\narg_0\nbytec_3 // \"1\"\n==\narg_0\narg_1\nbytec_1 // addr IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q\ned25519verify\n&&\ntxn CloseRemainderTo\nbytec 4 // addr 3MTDHUNSO4RXC3ZPJ67C7TLEOFHFO2UNXHE34PN52VN2CSNYSEOXXHPFNY\n==\n&&\n||\n&&\nreturn\n"
   },
   "txn": {
+    "close": "2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU",
     "fee": 1000,
-    "fv": 24104434,
+    "fv": 24104806,
     "gen": "testnet-v1.0",
     "gh": "SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=",
-    "lv": 24105434,
-    "note": "KoabzgHJRfo=",
+    "lv": 24105806,
+    "note": "Y1j2Qou16Gs=",
     "rcv": "2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU",
     "snd": "NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE",
     "type": "pay"
@@ -91,19 +95,22 @@ T1[0]
 }
 ```
 
+We now have to add to this transaction the signature of O on the value 0.
+To do this, we first need to generate a keyfile for the oracle:
 ```
-# goal clerk tealsign --sign-txid --keyfile keyfile.sk --lsig-txn T1 --set-lsig-arg-idx 0
+# goal account export -a IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q
 ```
-
-Where "MA==" represents the encode in base64 of the value zero.
-
-The file keyfile.sk has been generated using the following commands.
-
+The previous command outputs a key for the account O, represented as a mnemonic sentence.
+We import this key to a file:
 ```
-algorand@5856b1252bfb:/opt/algorand/node$ goal account export 7J6SHHBCIFAGBBQMJOXAKV2LCFU5CLXADWCMOJFDKM4MCDHSDYY3XV57QI -d data/ -w myWallet
-algorand@5856b1252bfb:/opt/algorand/node$ algokey import -m "mnemonic sentence"  --keyfile keyfile.sk
+# algokey import -m "mnemonic sentence"  --keyfile O.sk
 ```
 
 ```
-# goal clerk rawsend -f tosign.tx -d ~/node/data  || true
+# goal clerk tealsign --keyfile O.sk --lsig-txn T1 --data-b64 MA==
+Generated signature: cQEiQFdfS2pGbGvVBbfiZPU8XqgB5//gI6zhLhhKzTgKfh7UaEhSry0/IMdytpDbalHPYcrHyPPcKL9AqX2rDA==
+```
+
+```
+# goal clerk rawsend -f T1
 ```
