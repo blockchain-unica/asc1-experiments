@@ -47,8 +47,9 @@ We translate the oracle from PyTeal to TEAL. This generates a contract address:
 oracle.teal: NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE
 ```
 
-Now, use a [faucet](https://bank.testnet.algorand.network/) to send some Algos to the contract account.
-After that, we check the balance of the contract account:
+Now, we can either perform a send from some other account or from a [faucet](https://bank.testnet.algorand.network/) to send some Algos 
+(say, 10 Algos) to the contract account.
+After that, we check its balance:
 ```
 # goal account balance -a NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE
 10000000 microAlgos
@@ -112,7 +113,7 @@ the oracle contract requires to specify in the argument at index 1 the
 signature of O on the first argument. 
 We achieve this as follows:
 ```
-# goal clerk tealsign --keyfile O.sk --lsig-txn T1 --data-b64 MA==
+# goal clerk tealsign --keyfile O.sk --lsig-txn T1 --data-b64 MA== --set-lsig-arg-idx 1
 Generated signature: cQEiQFdfS2pGbGvVBbfiZPU8XqgB5//gI6zhLhhKzTgKfh7UaEhSry0/IMdytpDbalHPYcrHyPPcKL9AqX2rDA==
 ```
 
