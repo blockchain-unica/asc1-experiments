@@ -163,3 +163,13 @@ We can finally publish the transaction T1 to the blockchain:
 ```
 # goal clerk rawsend -f T1
 ```
+After the transaction have been committed, the funds have moved from the contract to A's account:
+```
+# goal account balance -a NPNJ2B3QPG4MPHX5OVIYQGO4GXMPGIPHTBRSJZ4S3HXA5MERTPOOWT47ZE
+0 microAlgos
+
+# goal account list
+[offline]	O	IPX7RJQPIHEEESTRRKF4QGNERGZE325NNFSYA5IX76VZRUTPQXZWNEMS7Q	0 microAlgos
+[offline]	A	2GYIH5HXKDNXA3F7BBIAT5IX744E2WY75GIQRLEWURVRK3XXDQ6LMRAHXU	19999000 microAlgos	*Default
+[offline]	B	3MTDHUNSO4RXC3ZPJ67C7TLEOFHFO2UNXHE34PN52VN2CSNYSEOXXHPFNY	10000000 microAlgos
+```
